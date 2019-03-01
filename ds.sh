@@ -113,13 +113,6 @@ checkRes() {
 checkAPI() {
 	echo -en "Check API availability..."
 	local RES=$(wget --no-check-certificate -qO - $DSADDR"/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.DownloadStation.Task")
-#	if [ "$(echo "$RES" | jq -r '.success')" != "true" ]
-#	then
-#		echo -e "\n${RED}Error: $(echo "$RES" | jq -r '.error.code')"
-#		errDescr $(echo "$RES" | jq -r '.error.code')
-#		exit 1
-#	fi
-#	echo -e "${GREEN} OK${DEFFONT}"
 	checkRes "$RES"
 }
 
@@ -128,7 +121,6 @@ authenticate() {
 	local RES=$(wget --no-check-certificate -qO - $DSADDR"/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=$DSUSER&passwd=$1&session=DownloadStation&format=sid")
 	checkRes "$RES"
 	SID=$(echo "$RES" | jq -r '.data.sid')
-#	echo -e "${GREEN} OK${DEFFONT}" #; echo "SID: $SID"
 }
 
 dslogout() {
@@ -150,13 +142,9 @@ init() {
 	checkAPI
 	authenticate "$DSPASS"
 }
-#read -s -p "Please enter $DSUSER's password: " DSPASS
-#echo ""
 
 if [[ $1 == "a" ]]
 then
-#	checkAPI
- #   authenticate "$DSPASS"
 	init
 	echo -en "Adding the task..."
 	if [ ${3:0:1} == "/" ]
@@ -173,40 +161,25 @@ then
 	fi
 elif [[ $1 == "p" ]]
 then
-#	checkAPI
- #   authenticate "$DSPASS"
 	init
 	echo -en "Pausing the task..."
 	RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=pause&id=$2&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")
 elif [[ $1 == "r" ]]
 then
-#	checkAPI
- #   authenticate "$DSPASS"
 	init
 	echo -en "Resuming the task..."
 	RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=resume&id=$2&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")
 elif [[ $1 == "d" ]]
 then
-#	checkAPI
- #   authenticate "$DSPASS"
 	init
 	echo -en "Deleting the tasks..."
 	RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=delete&id=$2&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")	
 elif [[ $1 == "s" ]]
 then
-#	checkAPI
- #   authenticate "$DSPASS"
 	init
 	echo -en "Getting tasks..."
 	RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=list&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")
 	checkRes "$RES"
-#	if [ "$(echo "$RES" | jq -r '.success')" != "true" ]
-#	then
-#		echo -e "${RED}Error: $(echo "$RES" | jq -r '.error.code')"
-#		errDescr $(echo "$RES" | jq -r '.error.code')
-#		exit 1
-#	fi
-#	echo -e "${GREEN} OK${DEFFONT}\n"
 	echo ""
 	printf "%-11s | %-12s | %s\n" "id" "status" "title"
 	printf "%-11s | %-12s | %s\n" "-----------" "------------" "-------------------------------"
@@ -225,13 +198,6 @@ fi
 if [[ $1 != "s" ]]
 then
 	checkRes "$RES"
-#	if [ "$(echo "$RES" | jq -r '.success')" != "true" ]
-#	then
-#		echo -e "${RED}Error: $(echo "$RES" | jq -r '.error.code')"
-#		errDescr $(echo "$RES" | jq -r '.error.code')
-#		exit 1
-#	fi
-#	echo -e "${GREEN} OK${DEFFONT}"
 fi
 
 dslogout
