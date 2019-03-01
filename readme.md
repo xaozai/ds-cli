@@ -18,13 +18,13 @@ I do not recommend to change other parameters in this file.
 #### Usage
 ```
 ds.sh a Task DPath	add a new task
-					  Task - URL | path | magnet
-					  DPath - a path where the task will be downloaded (in the shared folder)
-ds.sh s				show tasks
-ds.sh p id			pause tasks
-ds.sh r id			resume tasks
-ds.sh d id			delete tasks
-					  id - task IDs to be deleted, separated by ","
+			  Task - URL | path | magnet
+			  DPath - a path where the task will be downloaded (in the shared folder)
+ds.sh s			show tasks
+ds.sh p id		pause tasks
+ds.sh r id		resume tasks
+ds.sh d id		delete tasks
+			  id - task IDs to be deleted, separated by ","
 ```
 
 Examples:
