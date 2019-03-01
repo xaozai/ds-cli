@@ -10,21 +10,21 @@ cd ds-cli
 chmod +x ds.sh
 ```
 Or you can manually download the script and set the executable attribute.  
-Then you have to set two values in the file ds.sh: *DSADDR* and *DSUSER*.  
-*DSADDR* is the address of your device on the network; *DSUSER* is the user name for logging in to the system.  
+Then you have to set two values in the file ds.sh: **DSADDR** and **DSUSER**.  
+**DSADDR** is the address of your device on the network; **DSUSER** is the user name for logging in to the system.  
 I do not recommend to change other parameters in this file.
 
 
 #### Usage
 ```
 ds.sh a Task DPath	add a new task
-			  Task - URL | path | magnet
-			  DPath - a path where the task will be downloaded (in the shared folder)
+			   Task - URL | path | magnet
+			   DPath - a path where the task will be downloaded (in the shared folder)
 ds.sh s			show tasks
 ds.sh p id		pause tasks
 ds.sh r id		resume tasks
 ds.sh d id		delete tasks
-			  id - task IDs to be deleted, separated by ","
+			   id - task IDs to be deleted, separated by ","
 ```
 
 Examples:
