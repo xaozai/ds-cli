@@ -1,5 +1,5 @@
 ## ds-cli
-**ds-cli** is a bash script for managing Synology DownloadStation tasks from the command line.  
+**ds-cli** is a bash script to manage Synology DownloadStation tasks from the command line.  
 This script is developed in accordance with the [Synology Download Station Official API](http://download.synology.com/download/Document/DeveloperGuide/Synology_Download_Station_Web_API.pdf "Synology Download Station Official API")
 
 #### Installing
