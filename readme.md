@@ -38,3 +38,6 @@ Examples:
 ```
 
 *To start the DiskStation service (if it is stopped) from the command line you can use: sudo synopkg start DownloadStation*
+
+#### License
+This project is licensed under the MIT license, which can be found in the file ds.sh in the root of the project source code.
