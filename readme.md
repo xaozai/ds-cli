@@ -1,20 +1,20 @@
-## ds-cli
-**ds-cli** is a bash script for managing Synology DownloadStation tasks from the command line.
+### ds-cli
+**ds-cli** is a bash script for managing Synology DownloadStation tasks from the command line.  
 This script is developed in accordance with the [Synology Download Station Official API](http://download.synology.com/download/Document/DeveloperGuide/Synology_Download_Station_Web_API.pdf "Synology Download Station Official API")
 
-###### Installing
+##### Installing
 You can use these commands:
 ```
 git clone https://github.com/xaozai/ds-cli.git
 cd ds-cli
 chmod +x ds.sh
 ```
-Or you can manually download the script and set the executable attribute.
-Then you have to set two values in the file ds.sh: *DSADDR* and *DSUSER*. *DSADDR* is the address of your device on the network; *DSUSER* is the user name for logging in to the system.
+Or you can manually download the script and set the executable attribute.  
+Then you have to set two values in the file ds.sh: *DSADDR* and *DSUSER*. *DSADDR* is the address of your device on the network; *DSUSER* is the user name for logging in to the system.  
 I do not recommend to change other parameters in this file.
 
 
-###### Usage
+##### Usage
 ds.sh a Task DPath				add a new task
 									Task - URL | path | magnet
 									DPath - a path where the task will be downloaded (in the shared folder)
