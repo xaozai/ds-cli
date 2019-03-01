@@ -29,7 +29,7 @@ ds.sh d id		delete tasks
 
 Examples:
 ```
-./ds.sh a "magnet:?xt=urn:btih:5e1...d0c1fb&dn=t.org&tr=udp://t.org:2310&tr=udp://t.org:2310&tr=rt.loc/announce" "video/movie"
+./ds.sh a "magnet:?xt=urn:btih:5e1...ounce" "video/movie"
 ./ds.sh a "http://t.org/t/a.t.org/down/12345" "video/movie"
 ./ds.sh a "/volume1/homes/user/directory/file.torrent" "install/games"
 ./ds.sh a "/volume1/homes/user/directory/urls.txt" "some/stuff"
