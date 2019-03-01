@@ -12,7 +12,6 @@ chmod +x ds.sh
 Or you can manually download the script and set the executable attribute.  
 Then you have to set two values in the file ds.sh: **DSADDR** and **DSUSER**.  
 **DSADDR** is the address of your device on the network; **DSUSER** is the user name for logging in to the system.  
-I do not recommend to change other parameters in this file.
 
 
 #### Usage
