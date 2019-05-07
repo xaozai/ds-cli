@@ -155,9 +155,9 @@ then
 	fi
 	if echo "$2" | grep -q "magnet:?" || echo "$2" | grep -q "ftp://" || echo "$2" | grep -q "ftps://" || echo "$2" | grep -q "sftp://" || echo "$2" | grep -q "http://" || echo "$2" | grep -q "https://" || echo "$2" | grep -q "thunder://" || echo "$2" | grep -q "flashget://" || echo "$2" | grep -q "qqdl://"
 	then
-		RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=create&uri=$(prepareStr $2)&destination=$(prepareStr $DST)&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")
+		RES=$(wget --no-check-certificate -qO - --post-data "api=SYNO.DownloadStation.Task&version=1&method=create&uri=$(prepareStr "$2")&destination=$DST&_sid=$SID" $DSADDR"/webapi/DownloadStation/task.cgi")
 	else
-		RES=$(curl -s -k -F"api=SYNO.DownloadStation.Task" -F "version=1" -F "method=create" -F "destination=$(prepareStr $DST)" -F "_sid=$SID" -F"file=@$2" $DSADDR"/webapi/DownloadStation/task.cgi")
+		RES=$(curl -s -k -F"api=SYNO.DownloadStation.Task" -F "version=1" -F "method=create" -F "destination=$DST" -F "_sid=$SID" -F"file=@$2" $DSADDR"/webapi/DownloadStation/task.cgi")
 	fi
 elif [[ $1 == "p" ]]
 then
